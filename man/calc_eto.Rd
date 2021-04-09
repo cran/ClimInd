@@ -4,11 +4,22 @@
 \alias{calc_eto}
 \title{Et0}
 \usage{
-calc_eto(tmin, tmax, toa, w, mde, lat, tdew, radiation = NA,
-  insolation = NA, rh = NA, na.rm = FALSE)
+calc_eto(
+  tmin,
+  tmax,
+  toa,
+  w,
+  mde,
+  lat,
+  tdew,
+  radiation = NA,
+  insolation = NA,
+  rh = NA,
+  na.rm = FALSE
+)
 }
 \arguments{
-\item{tmin}{minimum temperature, Celsius}
+\item{tmin}{daily minimum temperature, Celsius, Celsius}
 
 \item{tmax}{maximum temperature, Celsius}
 

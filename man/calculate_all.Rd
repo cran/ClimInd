@@ -4,23 +4,31 @@
 \alias{calculate_all}
 \title{Calculate all indexes}
 \usage{
-calculate_all(data, lat = NULL, time.scale = YEAR, data_names = NULL,
-  index_result = c(1:138))
+calculate_all(
+  data,
+  lat = NULL,
+  time.scale = YEAR,
+  data_names = NULL,
+  index_result = c(1:138),
+  na.rm = FALSE
+)
 }
 \arguments{
 \item{data}{data list}
 
-\item{lat}{latitude}
+\item{lat}{latitude, degree}
 
 \item{time.scale}{month, season or year}
 
 \item{data_names}{names of each period of time}
 
-\item{index_result}{index_result}
+\item{index_result}{indexes to calculate}
+
+\item{na.rm}{logical. Should missing values (including NaN) be removed? (value or array by index)}
 }
 \value{
 all indexes
 }
 \description{
--
+Calculate all indexes for a point
 }

@@ -7,16 +7,16 @@
 ws(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-Winter Severity index
+temperature, Celsius
 }
 \description{
 Mean TG of the coldest month of the year

@@ -7,16 +7,16 @@
 stn10(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{minimum temperature}
+\item{data}{daily minimum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-temperature sums 3
+temperature, Celsius
 }
 \description{
 Sum of degree days when TN <=-10 Celsius recorded in December-February interval

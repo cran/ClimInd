@@ -7,19 +7,19 @@
 koi(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-Kerner Oceanity Index
+index value
 }
 \description{
-KOI analysed the oceanity assuming that marine climates have colder spring months in comparison with the autum nmonth.
+KOI analysed the oceanity assuming that marine climates have colder spring months in comparison with the autum months.
 }
 \section{Formula}{
  \deqn{KOI = \frac {100(TGo-TGa)}{Thm-Tcm}} TGo = Average temperature of October TGa = Average temperature of April Thm = Average temperature of the hottest month (Celsius); Tcm = Average temperature of the coldest month (Celsius)

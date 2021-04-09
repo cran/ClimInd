@@ -7,7 +7,7 @@
 ms(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{snow depth}
+\item{data}{snow depth, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,12 +16,12 @@ ms(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-maximum snow depth
+snow depth, m
 }
 \description{
 Maximum snow depth (m)
 }
 \examples{
 data(data_all)
-ms(data = data_all$snowdepththickness)
+ms(data = data_all$snowdepth)
 }

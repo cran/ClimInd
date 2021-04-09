@@ -8,7 +8,7 @@
 calc_spi(data, data_names = NULL, scale = 3, na.rm = FALSE)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 

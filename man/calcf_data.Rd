@@ -4,12 +4,22 @@
 \alias{calcf_data}
 \title{Operation de data, agrupando los datos por valores de names}
 \usage{
-calcf_data(data, date, extract_names, data_names, operation, ...)
+calcf_data(
+  data,
+  date,
+  time.scale,
+  extract_names = select_time_function,
+  data_names,
+  operation,
+  ...
+)
 }
 \arguments{
 \item{data}{data}
 
 \item{date}{date}
+
+\item{time.scale}{month, season, year or hydrological_years}
 
 \item{extract_names}{Operation to split data}
 

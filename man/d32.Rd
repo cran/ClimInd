@@ -4,19 +4,19 @@
 \alias{d32}
 \title{Days TX32}
 \usage{
-d32(data, data_names = NULL, na.rm = FALSE, ...)
+d32(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{maximum temperature}
+\item{data}{daily maximum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
-\item{na.rm}{logical. Should missing values (including NaN) be removed?}
+\item{time.scale}{month, season or year}
 
-\item{...}{...}
+\item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-temperature sums 1
+days
 }
 \description{
 Number of days whith TX >= 32 Celsius on the interval June-August.

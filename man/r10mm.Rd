@@ -7,7 +7,7 @@
 r10mm(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ r10mm(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-R10mm
+days
 }
 \description{
 Days with daily precipitation amount >= 10mm

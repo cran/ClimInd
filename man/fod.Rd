@@ -7,7 +7,7 @@
 fod(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{cloud base below 100 meter}
+\item{data}{cloud base below 100 meter, percentage}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ fod(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-cloudy days
+days
 }
 \description{
 Number of days with fog.
@@ -26,5 +26,5 @@ data(data_all)
 fod(data = data_all$cloud100)
 }
 \references{
-Rastogi, B., A.P. Williams, D.T. Fischer, S.F. Iacobellis, K. McEachern, L. Carvalho, C. Jones, S.A. Baguskas, and C.J. Still, 2016: Spatial and Temporal Patterns of Cloud Cover and Fog Inundation in Coastal California: Ecological Implications. Earth Interact., 20, 1–19, \url{https://doi.org/10.1175/EI-D-15-0033.1}
+Rastogi, B., A.P. Williams, D.T. Fischer, S.F. Iacobellis, K. McEachern, L. Carvalho, C. Jones, S.A. Baguskas, and C.J. Still, 2016: Spatial and Temporal Patterns of Cloud Cover and Fog Inundation in Coastal California: Ecological Implications. Earth Interact., 20, 1–19, \doi{10.1175/EI-D-15-0033.1}
 }

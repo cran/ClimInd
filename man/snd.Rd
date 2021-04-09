@@ -7,7 +7,7 @@
 snd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{cloud cover}
+\item{data}{cloud cover, percentage}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ snd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-SND
+days
 }
 \description{
 Days with mean cloud cover less than 10%.

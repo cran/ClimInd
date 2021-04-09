@@ -7,7 +7,7 @@
 fsd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{snowfall}
+\item{data}{snowfall, m of water equivalent}
 
 \item{data_names}{names of each period of time}
 
@@ -16,12 +16,10 @@ fsd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-freq. of snow days
+days
 }
 \description{
 Number of snow days
-number of snow days
-No. snow days
 }
 \examples{
 data(data_all)

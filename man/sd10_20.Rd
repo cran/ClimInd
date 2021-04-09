@@ -7,7 +7,7 @@
 sd10_20(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{snow depth}
+\item{data}{snow depth, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,14 +16,14 @@ sd10_20(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-SD10_20
+days
 }
 \description{
 The number of days with snow depth of 10-20 cm
 }
 \examples{
 data(data_all)
-sd10_20(data = data_all$snowdepththickness)
+sd10_20(data = data_all$snowdepth)
 }
 \references{
 European Climate Assessment & Dataset. Indices dictionary. \url{https://www.ecad.eu//indicesextremes/indicesdictionary.php}

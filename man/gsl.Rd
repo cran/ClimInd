@@ -7,16 +7,16 @@
 gsl(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{mean temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-growing season length
+days
 }
 \description{
 Annual count of days between the first span of at least 6 days with TG > 5 Celsius and first span after 1 July of 6 days with TG < 5 Celsius.
@@ -26,5 +26,5 @@ data(data_all)
 gsl(data=data_all$tg)
 }
 \references{
-Klein Tank AMG, Zwiers FW, Zhang X. 2009. Guidelines on analysis of extremes in a changing climate in support of informed decisions for adaptation, climate data and monitoring WCDMP-No 72, WMO-TD No 1500, p 5.
+European Climate Assessment & Dataset. Indices dictionary. \url{https://www.ecad.eu//indicesextremes/indicesdictionary.php}
 }

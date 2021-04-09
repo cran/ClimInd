@@ -4,9 +4,25 @@
 \alias{penman_fao_diario}
 \title{FAO-56 Penman-Monteith reference evapotranspiration (ET_0)}
 \usage{
-penman_fao_diario(Tmin, Tmax, U2, J, Ra = NA, lat = NA, Rs = NA,
-  tsun = NA, CC = NA, ed = NA, Tdew = NA, RH = NA, P = NA,
-  P0 = NA, z = NA, crop = "short", na.rm = FALSE)
+penman_fao_diario(
+  Tmin,
+  Tmax,
+  U2,
+  J,
+  Ra = NA,
+  lat = NA,
+  Rs = NA,
+  tsun = NA,
+  CC = NA,
+  ed = NA,
+  Tdew = NA,
+  RH = NA,
+  P = NA,
+  P0 = NA,
+  z = NA,
+  crop = "short",
+  na.rm = FALSE
+)
 }
 \arguments{
 \item{Tmin}{minimum temperature, Celsius}
@@ -17,11 +33,11 @@ penman_fao_diario(Tmin, Tmax, U2, J, Ra = NA, lat = NA, Rs = NA,
 
 \item{J}{day of the year}
 
-\item{Ra}{radiation, W/m2}
+\item{Ra}{radiation, (MJ m-2 d-1)}
 
 \item{lat}{latitude, degrees, CRS('+proj=longlat +ellps=WGS84 +datum=WGS84')}
 
-\item{Rs}{daily incoming solar radiation (J m-2 d-1)}
+\item{Rs}{daily incoming solar radiation (MJ m-2 d-1)}
 
 \item{tsun}{sunshine duration, hours}
 

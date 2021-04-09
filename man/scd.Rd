@@ -7,7 +7,7 @@
 scd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{snow depth}
+\item{data}{snow depth, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ scd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-snow covered days
+days
 }
 \description{
 Number of snow covered days (snow depth > 0)

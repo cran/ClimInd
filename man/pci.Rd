@@ -7,16 +7,16 @@
 pci(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-PCI
+index value
 }
 \description{
 Index to evaluate precipitation heterogeneity at a monthly scale. Values <10 (uniform monthly rainfall distribution); values 11-15 (moderate concentration of precipitation); values 16-20 (irregular distribution); and >20 ((high precipitation concentration)

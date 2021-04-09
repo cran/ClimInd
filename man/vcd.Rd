@@ -7,7 +7,7 @@
 vcd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{minimum temperature}
+\item{data}{daily minimum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,10 +16,10 @@ vcd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Very cold days
+days
 }
 \description{
-Days with TN <1st percentile.
+Days with TN <1st percentile. The 1th percentile is computed based on the time scale selected (month, season or year).
 }
 \examples{
 data(data_all)

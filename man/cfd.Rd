@@ -7,7 +7,7 @@
 cfd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{minimum temperature}
+\item{data}{daily minimum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ cfd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-maximum consecutive frost
+days
 }
 \description{
 Maximum number of consecutive days with TN < 0 Celsius

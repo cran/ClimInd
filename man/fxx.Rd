@@ -7,7 +7,7 @@
 fxx(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{maximum wind gust}
+\item{data}{maximum wind gust, m/s}
 
 \item{data_names}{names of each period of time}
 
@@ -16,14 +16,14 @@ fxx(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-FXx
+wind, m/s
 }
 \description{
 Maximum value of daily maximum wind gust (m/s)
 }
 \examples{
 data(data_all)
-fxx(data = data_all$windGUST)
+fxx(data = data_all$windgust)
 }
 \references{
 European Climate Assessment & Dataset. Indices dictionary. \url{https://www.ecad.eu//indicesextremes/indicesdictionary.php}

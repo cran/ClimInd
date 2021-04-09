@@ -7,7 +7,7 @@
 gtg(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ gtg(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Average temperature
+temperature, Celsius
 }
 \description{
 Mean of daily mean air temperature

@@ -9,7 +9,7 @@ td_to_rh(tmax, tmin, td)
 \arguments{
 \item{tmax}{maximum temperature}
 
-\item{tmin}{minimum temperature}
+\item{tmin}{daily minimum temperature, Celsius}
 
 \item{td}{dew point}
 }

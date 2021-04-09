@@ -4,8 +4,7 @@
 \alias{minimum_temp}
 \title{Minimum temperature}
 \usage{
-minimum_temp(data, data_names = NULL, time.scale = YEAR,
-  na.rm = FALSE)
+minimum_temp(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
 \item{data}{maximum, minimum or medium temperature}

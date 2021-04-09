@@ -7,7 +7,7 @@
 ssd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{sunshine duration}
+\item{data}{insolation, hours of sun}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ ssd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-SSD, h
+hours of sun
 }
 \description{
 Sum of sunshine duration (hours)

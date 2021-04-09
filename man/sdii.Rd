@@ -7,7 +7,7 @@
 sdii(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ sdii(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-SDII
+precipitation, mm
 }
 \description{
 Sum of precipitation in wet days (days with >1mm of precipitation), and dividing that by the number of wet days in the period.

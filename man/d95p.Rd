@@ -7,7 +7,7 @@
 d95p(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,10 +16,10 @@ d95p(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-R95p
+days
 }
 \description{
-Days with precipitation > 95p
+Days with precipitation > 95th percentile. The 95th percentile is computed based on the time scale selected (month, season or year) not daily
 }
 \examples{
 data(data_all)

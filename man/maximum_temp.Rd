@@ -4,8 +4,7 @@
 \alias{maximum_temp}
 \title{Maximum temperature}
 \usage{
-maximum_temp(data, data_names = NULL, time.scale = YEAR,
-  na.rm = FALSE)
+maximum_temp(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
 \item{data}{maximum, minimum or medium temperature}

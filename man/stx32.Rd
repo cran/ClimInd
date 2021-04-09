@@ -7,16 +7,16 @@
 stx32(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{maximum temperature}
+\item{data}{daily maximum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-temperature sums 1
+temperature, Celsius
 }
 \description{
 Sum of degree days when TX >= 32 Celsius on the interval June-August. The 32 celsius limit is the critical biological threshold for the maximum air temperature from which the physiological optimal growth and development of wheat and maize plants.

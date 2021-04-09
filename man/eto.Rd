@@ -4,30 +4,42 @@
 \alias{eto}
 \title{Reference evapotranspiration}
 \usage{
-eto(tmin, tmax, toa, w, lat, tdew, mde, radiation = NA,
-  insolation = NA, rh = NA, data_names = NULL, time.scale = YEAR,
-  na.rm = FALSE)
+eto(
+  tmin,
+  tmax,
+  toa,
+  w,
+  lat,
+  tdew,
+  mde,
+  radiation = NA,
+  insolation = NA,
+  rh = NA,
+  data_names = NULL,
+  time.scale = YEAR,
+  na.rm = FALSE
+)
 }
 \arguments{
-\item{tmin}{tmin}
+\item{tmin}{daily minimum temperature, Celsius}
 
-\item{tmax}{tmax}
+\item{tmax}{daily maximum temperature, Celsius}
 
-\item{toa}{toa}
+\item{toa}{solar radiation at TOA, W/m2}
 
-\item{w}{w}
+\item{w}{average wind, m/s}
 
-\item{lat}{lat}
+\item{lat}{latitude, degree}
 
-\item{tdew}{tdew}
+\item{tdew}{dew point, Celsius}
 
-\item{mde}{mde}
+\item{mde}{digital elevation model, m}
 
-\item{radiation}{radiation}
+\item{radiation}{net radiation, J/m2}
 
-\item{insolation}{insolation}
+\item{insolation}{insolation, hours of sun}
 
-\item{rh}{relative humidity}
+\item{rh}{relative humidity, percentage}
 
 \item{data_names}{names of each period of time}
 
@@ -36,7 +48,7 @@ eto(tmin, tmax, toa, w, lat, tdew, mde, radiation = NA,
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Eto
+mm
 }
 \description{
 If data available using Fao-56 Penman-Monteith

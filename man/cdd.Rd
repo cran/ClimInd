@@ -2,12 +2,12 @@
 % Please edit documentation in R/indecis_indices.R
 \name{cdd}
 \alias{cdd}
-\title{Cold spell duration}
+\title{Longest dry period}
 \usage{
 cdd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{minimum temperature}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,12 +16,15 @@ cdd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Cold spell duration index
+days
 }
 \description{
-Count of days with at least 6 consecutive days when TN < 10th percentile
+Maximum length of consecutive dry days (RR<1)
 }
 \examples{
 data(data_all)
-cdd(data=data_all$tn)
+cdd(data = data_all$rr)
+}
+\references{
+Klein Tank AMG, Zwiers FW, Zhang X. 2009. Guidelines on analysis of extremes in a changing climate in support of informed decisions for adaptation, climate data and monitoring WCDMP-No 72, WMO-TD No 1500, p 5.
 }

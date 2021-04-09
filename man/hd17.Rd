@@ -7,7 +7,7 @@
 hd17(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{mean temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ hd17(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-HD17
+temperature, Celsius
 }
 \description{
 accumulated degree when TG is below 17 Celsius
@@ -30,5 +30,5 @@ data(data_all)
 hd17(data=data_all$tg)
 }
 \references{
-Quayle, R. G., & Diaz, H. F. (1980). Heating degree day data applied to residential heating energy consumption. Journal of Applied Meteorology, 19(3), 241-246. https://doi.org/10.1175/1520-0450(1980)019<0241:HDDDAT>2.0.CO;2
+Quayle, R. G., & Diaz, H. F. (1980). Heating degree day data applied to residential heating energy consumption. Journal of Applied Meteorology, 19(3), 241-246. \doi{10.1175/1520-0450(1980)019<0241:HDDDAT>2.0.CO;2}
 }

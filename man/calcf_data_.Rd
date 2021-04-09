@@ -4,7 +4,7 @@
 \alias{calcf_data_}
 \title{Operation de data, agrupando los datos por valores de names}
 \usage{
-calcf_data_(data_names, data, operation, ...)
+calcf_data_(data_names, data, operation, time.scale, ...)
 }
 \arguments{
 \item{data_names}{names}
@@ -12,6 +12,8 @@ calcf_data_(data_names, data, operation, ...)
 \item{data}{data}
 
 \item{operation}{operation}
+
+\item{time.scale}{month, season, year or hydrological_years}
 
 \item{...}{...}
 }

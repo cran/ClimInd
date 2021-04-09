@@ -7,9 +7,9 @@
 ep(eto, pr, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{eto}{et0}
+\item{eto}{et0, mm}
 
-\item{pr}{precipitation}
+\item{pr}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -18,12 +18,12 @@ ep(eto, pr, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-effective precipitation
+mm
 }
 \description{
 Precipitation minus evapotranspiration
 }
 \examples{
 data(data_all)
-ep(pr = data_all$rr, eto = data_all$evapotranspiration)
+ep(eto = data_all$eto, pr = data_all$rr)
 }

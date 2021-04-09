@@ -7,7 +7,7 @@
 vwd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{maximum temperature}
+\item{data}{daily maximum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,10 +16,10 @@ vwd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Very warm days
+days
 }
 \description{
-Days with TX >99th percentile per year.
+Days with TX >99th percentile per year. The 99th percentile is computed based on the time scale selected (month, season or year).
 }
 \examples{
 data(data_all)

@@ -7,16 +7,16 @@
 gsr(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-GSP
+precipitation, mm
 }
 \description{
 Growing season (april to october) total precipitation

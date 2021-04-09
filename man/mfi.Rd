@@ -7,16 +7,16 @@
 mfi(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-MFI
+index value
 }
 \description{
 The precipitation concentration index is frequently associated to erosion risk.  Values: 0-60 very low; 60-90 Low; 90-120 moderate; 120-160 high; > 160 very high.

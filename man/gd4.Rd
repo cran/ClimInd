@@ -7,7 +7,7 @@
 gd4(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ gd4(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-GD4
+temperature, Celsius
 }
 \description{
 Sum of degree days of TG over 4 Celsius (the daily mean temperature is less than 4 celsius, it is set equal to 4 celsius)

@@ -7,16 +7,16 @@
 wki(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-Winkler index
+temperature, Celsius
 }
 \description{
 Sum of degree days over 10 celsius of TG from April 1 until October 31

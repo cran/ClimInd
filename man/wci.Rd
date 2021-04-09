@@ -7,9 +7,9 @@
 wci(taverage, w, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{taverage}{medium temperature}
+\item{taverage}{daily mean temperature, Celsius}
 
-\item{w}{average wind}
+\item{w}{average wind, m/s}
 
 \item{data_names}{names of each period of time}
 
@@ -18,7 +18,7 @@ wci(taverage, w, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-WCI
+index value
 }
 \description{
 Wind chill index is the lowering of body temperature due to the passing-flow of lower-temperature air. It combines air temperature and wind speed.

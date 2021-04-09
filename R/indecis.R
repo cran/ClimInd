@@ -55,20 +55,30 @@ scale_name = function(name){
   return(scales)
 }
 
-#' @title Calculate all indexes
-#' @description - 
+#' Select no empty parameters
 #'
 #' @param data data list
-#' @param lat latitude
+#' @return no empty parameter
+#' @keywords internal
+no_null = function(data){
+  return(data[[which(!sapply(data, is.null))[1]]])
+}
+
+#' @title Calculate all indexes
+#' @description Calculate all indexes for a point 
+#'
+#' @param data data list
+#' @param lat latitude, degree
 #' @param time.scale month, season or year
 #' @param data_names names of each period of time
-#' @param index_result index_result
+#' @param index_result indexes to calculate
+#' @param na.rm logical. Should missing values (including NaN) be removed? (value or array by index)
 #' @return all indexes
 #' @export
 ## @examples
 ## data(data_all)
 ## calculate_all(data = data_all, lat = data_all$lat)
-calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index_result = c(1:138)){
+calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index_result = c(1:138), na.rm=FALSE){
 
   data[[LAT]] = lat
   if(!is.null(data[[SNOWFALL]])){
@@ -77,38 +87,19 @@ calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index
   if(is.null(data[[SNOWFALLMM]]) & !is.null(data[[SNOWFALL]])){
     data[[SNOWFALLMM]] = data[[SNOWFALL]]*1000
   }
-  if(is.null(data[[SNOWDEPTHTHICKNESS]]) & !is.null(data[[SNOWDEPTH]])){
-    data[[SNOWDEPTHTHICKNESS]] = data[[SNOWDEPTH]]/312
+  if(is.null(data[[SNOWDEPTH]]) & !is.null(data[[SWE]]) & !is.null(data[[SNOWDENSITY]])){
+    # data[[SNOWDEPTH]] = data[[SWE]]/312
+    data[[SNOWDEPTH]] = 100000 * data[[SWE]] / data[[SNOWDENSITY]] # 100000 * m of water equivalent / kg m-3
   }
   if(is.null(data[[VAPOUR]]) &  !is.null(data[[DEWPOINT]])){
     data[[VAPOUR]] = td_to_vapor(data[[DEWPOINT]])
   }
-  if(is.null(data[[RADIATION_W]]) & !is.null(data[[RADIATION]])){
-    # J/m2 -> W/M2
-    data[[RADIATION_W]] = data[[RADIATION]] / (24*60*60)
-  }
-  if(is.null(data[[RADIATION]]) & !is.null(data[[RADIATION_W]])){
-    # W/M2 -> J/m2 
-    data[[RADIATION]] = data[[RADIATION_W]] * (24*60*60)
-  }
-  if(is.null(data[[HUMIDITY]]) & !is.null(data[[TMAX]]) & !is.null(data[[TMIN]]) & !is.null(data[[DEWPOINT]])){
-    data[[HUMIDITY]] = td_to_rh(tmax=data[[TMAX]], tmin=data[[TMIN]], td=data[[DEWPOINT]])
-  }
-  if(is.null(data[[TMEAN]]) & !is.null(data[[TMAX]]) & !is.null(data[[TMIN]])){
-    data[[TMEAN]] = (data[[TMAX]]+data[[TMIN]])/2
-  }
-  if(is.null(data[[INSOLATION]]) & !is.null(data[[RADIATION]]) & !is.null(data[[LAT]]) & !is.null(data[[MDE]])){
-    data[[INSOLATION]] = r_to_in(radiation=data[[RADIATION]], lat=data[[LAT]], mde=data[[MDE]])
-  }
-  if(is.null(data[[EVAPOTRANSPIRATION]]) & !is.null(data[[TMIN]]) & !is.null(data[[MDE]]) & !is.null(data[[TMAX]]) & (!is.null(data[[RADIATION]]) | !is.null(data[[INSOLATION]])) & !is.null(data[[WIND]]) & !is.null(data[LAT]) & !is.null(data[[DEWPOINT]])){
-    # tmin = data[[TMIN]]; tmax = data[[TMAX]]; radiation = data[[RADIATION]]; toa = data[[RADIATIONTOA]]; w = data[[WIND]]; lat=data[[LAT]]; tdew = data[[DEWPOINT]]; mde=data[[MDE]]; rh=data[[HUMIDITY]]
-    # data[[EVAPOTRANSPIRATION]] = calc_eto(tmin = data[[TMIN]], tmax = data[[TMAX]], radiation = data[[RADIATION]], insolation=data[[INSOLATION]], toa = data[[RADIATIONTOA]], w = data[[WIND]], lat=data[[LAT]], tdew = data[[DEWPOINT]], mde=data[[MDE]], rh=data[[HUMIDITY]])
-    data[[EVAPOTRANSPIRATION]] = calc_eto(tmin = data[[TMIN]], tmax = data[[TMAX]], radiation = data[[RADIATION]], toa = data[[RADIATIONTOA]], w = data[[WIND]], lat=data[[LAT]], tdew = data[[DEWPOINT]], mde=data[[MDE]], rh=data[[HUMIDITY]], insolation=data[[INSOLATION]])
-  }
-
   # Checking values
   if(sum(data[[TMAX]]<data[[TMIN]], na.rm = TRUE)>0){
     warning("TMAX < TMIN")
+  }
+  if(is.null(data[[TMEAN]]) & !is.null(data[[TMAX]]) & !is.null(data[[TMIN]])){
+    data[[TMEAN]] = (data[[TMAX]]+data[[TMIN]])/2
   }
   if(sum(data[[TMAX]]<data[[TMEAN]], na.rm = TRUE)>0){
     warning("TMAX < TMEAN")
@@ -116,9 +107,20 @@ calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index
   if(sum(data[[TMEAN]]<data[[TMIN]], na.rm = TRUE)>0){
     warning("TMEAN < TMIN")
   }
+  if(is.null(data[[HUMIDITY]]) & !is.null(data[[TMAX]]) & !is.null(data[[TMIN]]) & !is.null(data[[DEWPOINT]])){
+    data[[HUMIDITY]] = td_to_rh(tmax=data[[TMAX]], tmin=data[[TMIN]], td=data[[DEWPOINT]])
+  }
   if(sum(data[[PRECIPITATION]]<0, na.rm = TRUE)>0){
     warning(paste("PRECIPITATION < 0", sum(data[[PRECIPITATION]]<0, na.rm = TRUE)))
     data[[PRECIPITATION]][data[[PRECIPITATION]]<0] = 0 
+  }
+  if(is.null(data[[RADIATION]]) & !is.null(data[[RADIATION_W]])){
+    # W/M2 -> J/m2 
+    data[[RADIATION]] = data[[RADIATION_W]] * (24*60*60)
+  }
+  if(is.null(data[[RADIATION_W]]) & !is.null(data[[RADIATION]])){
+    # J/m2 -> W/M2
+    data[[RADIATION_W]] = data[[RADIATION]] / (24*60*60)
   }
   if(sum(data[[RADIATION]]<0, na.rm = TRUE)>0){
     data[[RADIATION]][data[[RADIATION]]<0] = 0
@@ -155,18 +157,18 @@ calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index
     data[[CLOUD100]][data[[CLOUD100]]<0] = 0
     warning("CLOUD100 > 100")
   }
+  if(is.null(data[[INSOLATION]]) & !is.null(data[[RADIATION]]) & !is.null(data[[LAT]]) & !is.null(data[[MDE]])){
+    data[[INSOLATION]] = r_to_in(radiation=data[[RADIATION]], lat=data[[LAT]], mde=data[[MDE]])
+  }
+  if(is.null(data[[ETO]]) & !is.null(data[[TMIN]]) & !is.null(data[[MDE]]) & !is.null(data[[TMAX]]) & (!is.null(data[[RADIATION]]) | !is.null(data[[INSOLATION]])) & !is.null(data[[WIND]]) & !is.null(data[LAT]) & !is.null(data[[DEWPOINT]])){
+    # tmin = data[[TMIN]]; tmax = data[[TMAX]]; radiation = data[[RADIATION]]; toa = data[[RADIATIONTOA]]; w = data[[WIND]]; lat=data[[LAT]]; tdew = data[[DEWPOINT]]; mde=data[[MDE]]; rh=data[[HUMIDITY]]
+    data[[ETO]] = calc_eto(tmin = data[[TMIN]], tmax = data[[TMAX]], radiation = data[[RADIATION]], toa = data[[RADIATIONTOA]], w = data[[WIND]], lat=data[[LAT]], tdew = data[[DEWPOINT]], mde=data[[MDE]], rh=data[[HUMIDITY]], insolation=data[[INSOLATION]])
+  }
+  # return(list("eto_all"=data[[ETO]])) #fergus:quitar
   # data_all=data
 
-  ## Select no empty parameters
-  ##
-  ## @return no empty parameters
-  ## @keywords internal
-  no_null = function(){
-    return(data[[which(!sapply(data, is.null))[1]]])
-  }
-
   if(is.null(data_names)){
-    date = chron(names(no_null()))
+    date = chron(names(no_null(data)))
     extract_names=select_time_function(time.scale)
     data_names = extract_names(date)
   }
@@ -191,9 +193,10 @@ calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index
   ##
   ## @param n id index
   ## @param data all parameters
+  ## @param na.rm logical. Should missing values (including NaN) be removed?
   ## @return calculate index
   ## @keywords internal
-  calculate_n_index = function(n, data){
+  calculate_n_index = function(n, data, na.rm){
     # f = get(paste0("calculate_", n)) #, pos = -1
     # print(index_names[n])   
     f = index_functions[[index_names[n]]]
@@ -205,27 +208,27 @@ calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index
       # print(length(attr(f, "data")))
       # print(class(data))
       if(length(attr(f, "data"))==1){
-        return(f(data=data[[attr(f, "data")[1]]], data_names=data_names, time.scale=time.scale))
+        return(f(data=data[[attr(f, "data")[1]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==2){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==3){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==4){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==5){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==6){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==7){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==8){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==9){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data[[attr(f, "data")[9]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data[[attr(f, "data")[9]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==10){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data[[attr(f, "data")[9]]], data[[attr(f, "data")[10]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data[[attr(f, "data")[9]]], data[[attr(f, "data")[10]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else if(length(attr(f, "data"))==11){
-        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data[[attr(f, "data")[9]]], data[[attr(f, "data")[10]]], data[[attr(f, "data")[11]]], data_names=data_names, time.scale=time.scale))
+        return(f(data[[attr(f, "data")[1]]], data[[attr(f, "data")[2]]], data[[attr(f, "data")[3]]], data[[attr(f, "data")[4]]], data[[attr(f, "data")[5]]], data[[attr(f, "data")[6]]], data[[attr(f, "data")[7]]], data[[attr(f, "data")[8]]], data[[attr(f, "data")[9]]], data[[attr(f, "data")[10]]], data[[attr(f, "data")[11]]], data_names=data_names, time.scale=time.scale, na.rm = na.rm))
       }else{
         print("More input values than allowed.")
       }
@@ -244,10 +247,13 @@ calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index
     for (i in start:length(index_result)){
       n <- index_result[i]
       # print(paste("Calculate", "function", n, "i", i))
-      result_list[[index_names[n]]] <- calculate_n_index(n, data=data)
+      if(length(na.rm)==1){
+        na.rm.n = na.rm
+      }else{
+        na.rm.n = na.rm[n]
+      }
+      result_list[[index_names[n]]] <- calculate_n_index(n, data=data, na.rm=na.rm.n)
     }
-    # Eliminados: 47 48
-    # Devuelven NULL porque no sabemos como funcionan 135 136 137 138
     # index_result_yes = which(index_names%in%names(result_list))
     # index_result_no = which(!(index_names%in%names(result_list)))
   }
@@ -255,10 +261,10 @@ calculate_all = function(data, lat=NULL, time.scale=YEAR, data_names=NULL, index
 }
 
 #' @title Calculate all indexes for all time scales
-#' @description -
+#' @description Calculate all indexes for a point and all time scales
 #'
 #' @param data data list
-#' @param lat latitude
+#' @param lat latitude, degree
 #' @return all indexes
 #' @export
 ## @examples

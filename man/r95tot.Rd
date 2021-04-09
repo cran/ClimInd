@@ -7,7 +7,7 @@
 r95tot(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,12 +16,12 @@ r95tot(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-PVWD
+precipitation, mm
 }
 \description{
-Precipitation at days exceeding the 95percentile divided by total precipitation expressed in percentage
+Precipitation at days exceeding the 95th percentile divided by total precipitation expressed in percentage. The 95th percentile is computed based on the time scale selected (month, season or year) not daily.
 }
 \examples{
 data(data_all)
-r95tot(data = data_all$rr)
+r95tot(data = data_all$rr, time.scale="month")
 }

@@ -7,7 +7,7 @@
 asd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{snow depth}
+\item{data}{snow depth, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,12 +16,12 @@ asd(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-average snow depth
+snow depth, m
 }
 \description{
 Average snow depth
 }
 \examples{
 data(data_all)
-asd(data = data_all$snowdepththickness)
+asd(data = data_all$snowdepth)
 }

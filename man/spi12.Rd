@@ -7,16 +7,16 @@
 spi12(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-SPI
+index value
 }
 \description{
 Standardized precipitation index calculated at 12-month time scale

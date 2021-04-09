@@ -7,7 +7,7 @@
 ogs10(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ ogs10(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Onset of growing season 2
+date
 }
 \description{
 Date of the start of the first span with at least 10 days with TG > 5 Celsius

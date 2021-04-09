@@ -4,17 +4,24 @@
 \alias{utci}
 \title{Universal Thermal Climate Index}
 \usage{
-utci(ta, rh, wind, tmrt, data_names = NULL, time.scale = YEAR,
-  na.rm = FALSE)
+utci(
+  taverage,
+  rh,
+  w,
+  tmrt,
+  data_names = NULL,
+  time.scale = YEAR,
+  na.rm = FALSE
+)
 }
 \arguments{
-\item{ta}{medium temperature}
+\item{taverage}{daily mean temperature, Celsius}
 
-\item{rh}{humidity}
+\item{rh}{relative humidity, percentage}
 
-\item{wind}{average wind}
+\item{w}{average wind, m/s}
 
-\item{tmrt}{radiation temperature}
+\item{tmrt}{radiation temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -23,19 +30,16 @@ utci(ta, rh, wind, tmrt, data_names = NULL, time.scale = YEAR,
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-UTCI
+index value
 }
 \description{
-The Universal Thermal Climate Index is expressed as an equivalent ambient temperature (Celsius) of a reference environment providing the same physiological response of a reference person as the actual environment
-\url{http://www.utci.org/} http://www.utci.org/utci_doku.php
-Copy \url{https://github.com/alfcrisci/rBiometeo}
-Given air temperature (Celsius), relative humidity (\%), wind velocity (m/sec) and mean radiant temperature ( tmrt in Celsius degree) gives the Universal Thermal Climate Index in Celsius.
+The Universal Thermal Climate is defined as the air temperature of the reference condition causing the same model response as actual conditions. The deviation of UTCI from air temperature, depends on the values of air and mean radiant temperature), wind speed and humidity.
 }
 \examples{
 data(data_all)
-utci(ta = data_all$tg, rh = data_all$dewpoint, wind = data_all$wind, 
-     tmrt = data_all$"RADIATIONTEMPERATURE")
+utci(ta = data_all$tg, rh = data_all$humidity, w = data_all$wind, 
+     tmrt = data_all$radiationtemperature)
 }
 \references{
-Blazejczyk, K., Epstein, Y., Jendritzky, G., Staiger, H., & Tinz, B. (2012). Comparison of UTCI to selected thermal indices. International Journal of Biometeorology, 56(3), 515-535. doi:10.1007/s00484-011-0453-2
+Blazejczyk, K.; Jendritzky, G.; Bröde, P.; Fiala, D.; Havenith, G.; Epstein, Y., Psikuta, A.; Kampmann, B. 2013. An introduction to the Universal Thermal Climate Index (UTCI). Geographia Polonica, 86 (1), pp.5-10. \url{http://www.utci.org/}
 }

@@ -7,16 +7,16 @@
 fsc(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{snow depth}
+\item{data}{snow depth, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-first snowcover
+date
 }
 \description{
 First day when there is measurable snow cover (day of the hydrological year)

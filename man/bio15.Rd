@@ -7,16 +7,16 @@
 bio15(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-BIO15
+index value
 }
 \description{
 The coefficient of variation is a measure of the variation in monthly precipitation totals over the course of the year. This index is the ratio of the standard deviation of the monthly total precipitation to the mean monthly total precipitation and is expressed as a percentage.
@@ -24,8 +24,4 @@ The coefficient of variation is a measure of the variation in monthly precipitat
 \examples{
 data(data_all)
 bio15(data = data_all$rr)
-}
-\references{
-Hijmans RJ, Cameron SE, Parra JL, Jones PG, Jarvis A (2005) Very high resolution interpolated climate surfaces for global land areas. Int J Climatol 25:1965–1978. doi: 10.1002/joc.1276. \url{http://www.worldclim.org/bioclim}
-This is a measure of the variation in monthly precipitation totals over the course of the year. This index is the ratio of the standard deviation of the monthly total precipitation to the mean monthly total precipitation (also known as the coefficient of variation) and is expressed as a percentage.
 }

@@ -7,7 +7,7 @@
 dd17(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{maximum temperature}
+\item{data}{daily maximum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ dd17(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Temperature sums
+days
 }
 \description{
 (days tx > 17 Celsius)-(days TX < 17 Celsius)

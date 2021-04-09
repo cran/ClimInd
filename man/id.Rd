@@ -7,7 +7,7 @@
 id(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{maximum temperature}
+\item{data}{daily maximum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ id(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-ice days
+days
 }
 \description{
 Number of days with TX < 0 Celsius.

@@ -7,26 +7,26 @@
 spei12(eto, pr, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{eto}{et0}
+\item{eto}{evapotranspiration, mm}
 
-\item{pr}{precipitation}
+\item{pr}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-SPEI
+index value
 }
 \description{
 Standardized precipitation-evapotranspiration index calculated at 12-month time scale
 }
 \examples{
 data(data_all)
-spei12(eto = data_all$evapotranspiration, pr = data_all$rr)
+spei12(eto = data_all$eto, pr = data_all$rr)
 }
 \references{
-Vicente-Serrano, S. M., Beguería, S. and López-Moreno, J. I.: A multiscalar drought index sensitive to global warming: The standardized precipitation evapotranspiration index, J. Clim., 23(7), doi:10.1175/2009JCLI2909.1, 2010.
+Vicente-Serrano, S. M., Beguería, S. and López-Moreno, J. I.: A multiscalar drought index sensitive to global warming: The standardized precipitation evapotranspiration index, J. Clim., 23(7), \doi{10.1175/2009JCLI2909.1}, 2010.
 }

@@ -7,18 +7,18 @@
 pici(pr, taverage, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{pr}{precipitation}
+\item{pr}{daily precipitation, mm}
 
-\item{taverage}{medium temperature}
+\item{taverage}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-Pinna Combinative index
+index value
 }
 \description{
 Pinna combinative index is an aridity–humidity index

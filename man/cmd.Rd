@@ -4,12 +4,18 @@
 \alias{cmd}
 \title{Climatic moisture deficit}
 \usage{
-cmd(eto, pr, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
+cmd(
+  eto,
+  evapotranspiration,
+  data_names = NULL,
+  time.scale = YEAR,
+  na.rm = FALSE
+)
 }
 \arguments{
-\item{eto}{et0}
+\item{eto}{eto, mm}
 
-\item{pr}{precipitation}
+\item{evapotranspiration}{evapotranspiration, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -18,16 +24,15 @@ cmd(eto, pr, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-CMD
+index value
 }
 \description{
-ETo - Effective precipitation
-ETo - Effective Precipitation
+ETo - evapotranspiration
 }
 \examples{
 data(data_all)
-cmd(eto = data_all$evapotranspiration, pr = data_all$rr)
+cmd(eto = data_all$eto, evapotranspiration = data_all$evaporation)
 }
 \references{
-Parks, S. A., Parisien, M. , Miller, C. , Holsinger, L. M. and Baggett, L. S. (2018), Fine-scale spatial climate variation and drought mediate the likelihood of reburning. Ecol Appl, 28: 573-586. doi:10.1002/eap.1671
+Parks, S. A., Parisien, M. , Miller, C. , Holsinger, L. M. and Baggett, L. S. (2018), Fine-scale spatial climate variation and drought mediate the likelihood of reburning. Ecol Appl, 28: 573-586. \doi{10.1002/eap.1671}
 }

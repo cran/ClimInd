@@ -7,9 +7,9 @@
 mi(taverage, rh, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{taverage}{medium temperature}
+\item{taverage}{daily mean temperature, Celsius}
 
-\item{rh}{relative humidity}
+\item{rh}{relative humidity, percentage}
 
 \item{data_names}{names of each period of time}
 
@@ -18,7 +18,7 @@ mi(taverage, rh, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Mould index
+days
 }
 \description{
 Number of days with  a relative humidity over 90% in combination with TG above 10 Celsius

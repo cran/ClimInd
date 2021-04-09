@@ -7,9 +7,9 @@
 zcd(tmax, tmin, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{tmax}{maximum temperature}
+\item{tmax}{daily maximum temperature, Celsius}
 
-\item{tmin}{minimum temperature}
+\item{tmin}{daily minimum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -18,7 +18,7 @@ zcd(tmax, tmin, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-zero crossing days
+days
 }
 \description{
 Number of days with TX > 0 Celsius and TN < 0 Celsius.

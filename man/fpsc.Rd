@@ -7,20 +7,19 @@
 fpsc(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{snow depth}
+\item{data}{snow depth, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-first permanent snowcover
+date
 }
 \description{
 First day of the longest period with consecutive snow cover day (day of the hydrological year).
-First day of the longest period with consecutive snow cover day
 }
 \examples{
 data(data_all)

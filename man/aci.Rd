@@ -7,9 +7,9 @@
 aci(data, toa, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{net radiation}
+\item{data}{net radiation, J/m2}
 
-\item{toa}{solar radiation at TOA}
+\item{toa}{solar radiation at TOA, W/m2}
 
 \item{data_names}{names of each period of time}
 
@@ -18,7 +18,7 @@ aci(data, toa, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-ACI
+index value
 }
 \description{
 Ratio between solar radiation at surface and solar radiation at TOA (alt top of the atmosphere)

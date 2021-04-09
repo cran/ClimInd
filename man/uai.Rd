@@ -7,9 +7,9 @@
 uai(eto, pr, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{eto}{et0}
+\item{eto}{evapotranspiration, mm}
 
-\item{pr}{precipitation}
+\item{pr}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -18,15 +18,15 @@ uai(eto, pr, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-iUNEP
+index value
 }
 \description{
 P/Eto
 }
 \examples{
 data(data_all)
-uai(eto = data_all$evapotranspiration, pr = data_all$rr)
+uai(eto = data_all$eto, pr = data_all$rr)
 }
 \references{
-Huiping Huang, Yuping Han, Mingming Cao, Jinxi Song, and Heng Xiao Spatial-Temporal Variation of Aridity Index of China during 1960–2013. Advances in Meteorology, vol. 2016, Article ID 1536135, 10 pages, 2016. \url{https://doi.org/10.1155/2016/1536135}
+Huiping Huang, Yuping Han, Mingming Cao, Jinxi Song, and Heng Xiao Spatial-Temporal Variation of Aridity Index of China during 1960–2013. Advances in Meteorology, vol. 2016, Article ID 1536135, 10 pages, 2016. \doi{10.1155/2016/1536135}
 }

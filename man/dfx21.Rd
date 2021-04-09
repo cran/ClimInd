@@ -7,7 +7,7 @@
 dfx21(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{wind}
+\item{data}{maximum wind gust, m/s}
 
 \item{data_names}{names of each period of time}
 
@@ -16,12 +16,12 @@ dfx21(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Gustmax
+days
 }
 \description{
 Number of days with wind gusts above 21 m/s
 }
 \examples{
 data(data_all)
-dfx21(data = data_all$windGUST)
+dfx21(data = data_all$windgust)
 }

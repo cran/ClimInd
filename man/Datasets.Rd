@@ -5,7 +5,9 @@
 \alias{Datasets}
 \alias{data_all}
 \title{data_all}
-\format{An object of class \code{list} of length 22.}
+\format{
+An object of class \code{list} of length 22.
+}
 \usage{
 data(data_all)
 }

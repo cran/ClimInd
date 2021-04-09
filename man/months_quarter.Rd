@@ -4,8 +4,7 @@
 \alias{months_quarter}
 \title{Select quarter days}
 \usage{
-months_quarter(functionValues, selectFunction, selectValues,
-  na.rm = FALSE)
+months_quarter(functionValues, selectFunction, selectValues, na.rm = FALSE)
 }
 \arguments{
 \item{functionValues}{functionValues}

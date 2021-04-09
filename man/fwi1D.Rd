@@ -4,8 +4,17 @@
 \alias{fwi1D}
 \title{Fire Weather Index applied to 1D data}
 \usage{
-fwi1D(dates, Tm, H, r, W, lat = 46, what = "FWI", init.pars = c(85,
-  6, 15), spin.up = 0)
+fwi1D(
+  dates,
+  Tm,
+  H,
+  r,
+  W,
+  lat = 46,
+  what = "FWI",
+  init.pars = c(85, 6, 15),
+  spin.up = 0
+)
 }
 \arguments{
 \item{dates}{Vector of dates. This is a character string in the form \code{d/m/y}}

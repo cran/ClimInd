@@ -1,7 +1,7 @@
 Package: ClimInd
 Type: Package
-Version: 0.1-2
-Date: 2019-07-4
+Version: 0.1-3
+Date: 2021-04-09
 Title: Climate Indices
 Author: Fergus Reig-Gracia [aut, cre], Sergio M. Vicente-Serrano [aut], Fernando Dominguez-Castro [aut], Joaquin Bedia-Jiménez [ctb]
 Maintainer: Fergus Reig-Gracia <fergusrg@gmail.com>
@@ -13,12 +13,12 @@ LazyLoad: yes
 Encoding: UTF-8
 Suggests: MASS, rmarkdown, testthat
 NeedsCompilation: no
-Packaged: 2019-07-11 11:15:55 UTC; fergus
-RoxygenNote: 6.1.1
+Packaged: 2021-04-09 09:33:51 UTC; fergus
+RoxygenNote: 7.1.1
 ByteCompile: true
 Collate: 'ClimInd.R' 'ClimIndNews.R' 'custom_functions.R' 'data.R'
         'ffdi.R' 'fwi1D.R' 'penman_fao_dia.R' 'nesterovIndex.R'
         'macArthurFFDI.R' 'kbdindex.R' 'indecis_indices_functions.R'
         'indecis_indices.R' 'indecis.R'
 Repository: CRAN
-Date/Publication: 2019-07-18 06:35:41 UTC
+Date/Publication: 2021-04-10 00:00:03 UTC

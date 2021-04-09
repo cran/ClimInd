@@ -7,18 +7,18 @@
 bi(data, pr, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{net radiation, surface solar radiation downwards, J/m2}
+\item{data}{net radiation, J/m2}
 
-\item{pr}{precipitation}
+\item{pr}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-Budyko Index
+index value
 }
 \description{
 Budyko Index is based on characteristics of the surface heat and water balance.

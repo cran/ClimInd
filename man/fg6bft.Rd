@@ -7,7 +7,7 @@
 fg6bft(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{wind}
+\item{data}{average wind, m/s}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ fg6bft(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-FG6Bft
+days
 }
 \description{
 Number of days with FG >=6 Bft (10.8 m/s)

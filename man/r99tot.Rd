@@ -7,7 +7,7 @@
 r99tot(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
@@ -16,10 +16,10 @@ r99tot(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-PEWD
+precipitation, mm
 }
 \description{
-Precipitation at days exceeding the 99percentile divided by total precipitation expressed in percentage
+Precipitation at days exceeding the 99th percentile divided by total precipitation expressed in percentage, The 99th percentile is computed based on the time scale selected (month, season or year) not daily
 }
 \examples{
 data(data_all)

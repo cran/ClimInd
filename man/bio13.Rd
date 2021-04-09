@@ -7,16 +7,16 @@
 bio13(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{precipitation}
+\item{data}{daily precipitation, mm}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-BIO13
+precipitation, mm
 }
 \description{
 Total precipitation of the wettest month of the year
@@ -26,5 +26,5 @@ data(data_all)
 bio13(data = data_all$rr)
 }
 \references{
-Hijmans RJ, Cameron SE, Parra JL, Jones PG, Jarvis A (2005) Very high resolution interpolated climate surfaces for global land areas. Int J Climatol 25:1965–1978. doi: 10.1002/joc.1276. \url{http://www.worldclim.org/bioclim}
+Hijmans RJ, Cameron SE, Parra JL, Jones PG, Jarvis A (2005) Very high resolution interpolated climate surfaces for global land areas. Int J Climatol 25:1965–1978. \doi{10.1002/joc.1276}. \url{https://web.archive.org/web/20190714191708/https://www.worldclim.org/bioclim}
 }

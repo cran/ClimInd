@@ -4,32 +4,32 @@
 \alias{moi}
 \title{Marsz Oceanity Index}
 \usage{
-moi(data, value, data_names = NULL, na.rm = FALSE, ...)
+moi(data, lat, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
-\item{value}{lat}
+\item{lat}{latitude, degree}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-n0to10
+index value
 }
 \description{
-MOI = ( 0.731 * geographic latitude grados + 1.767 ) / the annual range of monthly mean air temperatures grados
+The annual range of monthly mean air temperatures grados
 }
 \section{Formula}{
- \deqn{MOI=\frac {0.731 \phi +1.767}{Thm-Tcm}} \deqn{\phi} = geographical latitude; Thm = Average temperature of the hottest month (Celsius); Tcm = Average temperature of the coldest month (Celsius)
+ \deqn{MOI=\frac {0.731 \phi +1.767}{Thm-Tcm}} Phi = geographical latitude; Thm = Average temperature of the hottest month (Celsius); Tcm = Average temperature of the coldest month (Celsius)
 }
 
 \examples{
 data(data_all)
-moi(data = data_all$tg, value = data_all$lat)
+moi(data = data_all$tg, lat = data_all$lat)
 }
 \references{
 Marsz A, Rakusa-Suszczewskis S. 1987. Charakterystyka ekologiczna rejonu Zatoki Admiralicji (King George Island, SouthShetland Islands). 1. Klimat i obszary wolne od lodu.Kosmos36:103–127.

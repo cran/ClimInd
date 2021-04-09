@@ -7,7 +7,7 @@
 bio20(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{radiation en w/m2}
+\item{data}{radiation, W m-2}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ bio20(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-BIO20
+radiation, W m-2
 }
 \description{
 Mean radiation (W m-2)
@@ -26,5 +26,5 @@ data(data_all)
 bio20(data = data_all$radiation_w)
 }
 \references{
-Kriticos, D.J., Webber, B.L., Leriche, A., Ota, N., Macadam, I., Bathols, J. and Scott, J.K. (2012) CliMond: global high-resolution historical and future scenario climate surfaces for bioclimatic modelling. Methods in Ecology and Evolution, 3, 53-64. http://dx.doi.org/10.1111/j.2041-210X.2011.00134.x
+Kriticos, D.J., Webber, B.L., Leriche, A., Ota, N., Macadam, I., Bathols, J. and Scott, J.K. (2012) CliMond: global high-resolution historical and future scenario climate surfaces for bioclimatic modelling. Methods in Ecology and Evolution, 3, 53-64. \doi{10.1111/j.2041-210X.2011.00134.x}
 }

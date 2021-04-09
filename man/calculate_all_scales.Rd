@@ -9,11 +9,11 @@ calculate_all_scales(data, lat = NULL)
 \arguments{
 \item{data}{data list}
 
-\item{lat}{latitude}
+\item{lat}{latitude, degree}
 }
 \value{
 all indexes
 }
 \description{
--
+Calculate all indexes for a point and all time scales
 }

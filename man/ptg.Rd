@@ -7,16 +7,16 @@
 ptg(data, data_names = NULL, na.rm = FALSE, ...)
 }
 \arguments{
-\item{data}{medium temperature}
+\item{data}{daily mean temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 
-\item{...}{...}
+\item{...}{further arguments passed to or from other methods}
 }
 \value{
-temperature sums 5
+temperature, Celsius
 }
 \description{
 Sums of positive TG calculated for the 1st of February to the 10th April interval

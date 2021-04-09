@@ -4,15 +4,14 @@
 \alias{at}
 \title{Apparent temperature}
 \usage{
-at(taverage, w, vapor, data_names = NULL, time.scale = YEAR,
-  na.rm = FALSE)
+at(taverage, w, vapor, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{taverage}{medium temperature}
+\item{taverage}{daily mean temperature, Celsius}
 
-\item{w}{average wind}
+\item{w}{average wind, m/s}
 
-\item{vapor}{water vapour pressure}
+\item{vapor}{water vapour pressure, hPa}
 
 \item{data_names}{names of each period of time}
 
@@ -21,7 +20,7 @@ at(taverage, w, vapor, data_names = NULL, time.scale = YEAR,
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-AT
+index value
 }
 \description{
 Index of the percived temperature.

@@ -7,7 +7,7 @@
 gtn(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 }
 \arguments{
-\item{data}{minimum temperature}
+\item{data}{daily minimum temperature, Celsius}
 
 \item{data_names}{names of each period of time}
 
@@ -16,7 +16,7 @@ gtn(data, data_names = NULL, time.scale = YEAR, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
 \value{
-Average temperature
+temperature, Celsius
 }
 \description{
 Mean of daily minimum air temperature
